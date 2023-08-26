@@ -50,12 +50,12 @@ with st.container():
         st.metric('Std Dos Alugueis', price_std)
 
 with st.container():
-    name = (df1.loc[:,['name','number_of_reviews','latitude','longitude']]
-           .groupby(['name','latitude','longitude'])
-           .max()
-           .sort_values('number_of_reviews', ascending=False)
-           .reset_index()
-           .head(10))
+    name = (df1.loc[:,['name','number_of_reviews','latitude','longitude','reviews_per_month', 'price']]
+               .groupby(['name','latitude','longitude','number_of_reviews','price'])
+               .max()
+               .sort_values('number_of_reviews', ascending=False)
+               .reset_index()
+               .head(10))
 
     map = fl.Map()
     master_cluster = fl.plugins.MarkerCluster().add_to(map)
@@ -63,6 +63,13 @@ with st.container():
     for index, location_index in name.iterrows():
         latitude = location_index['latitude']
         longitude = location_index['longitude']
+
+        pop_up = f'<div style="width: 250px;">' \
+             f'Nome: {location_index['name']} <br>' \
+             f'Número de Avaliações: {location_index['number_of_reviews']} <br>'
+             f'Preço: {location_index['price']} <br>'
+             f'</div>'
+        
 
         fl.Marker([latitude,longitude], zoom_start=10).add_to(master_cluster)
     
