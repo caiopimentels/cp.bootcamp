@@ -3,11 +3,10 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 import folium as fl
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 
 from PIL import Image
 from streamlit_folium import folium_static
-#from folium.plugins import FastMarkerCluster
 
 #================================
 #Funções:
@@ -91,7 +90,7 @@ with st.container():
 
         fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(master_cluster)
     
-    folium_static(map, width=864, height=486)
+    folium_static(map, width=720, height=600)
     st.markdown("""---""")
     
 with st.container():
