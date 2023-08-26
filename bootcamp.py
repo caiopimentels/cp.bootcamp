@@ -88,9 +88,8 @@ with st.container():
              f'</div>'
         
 
-        fig = fl.Marker([latitude,longitude], zoom_start=5, popup=pop_up).add_to(master_cluster)
-        st.plotly_chart(fig, use_container_width=True)
-    
+        fl.Marker([latitude,longitude], zoom=5, popup=pop_up).add_to(master_cluster)
+            
     folium_static(map, width=720, height=400)
     st.markdown("""---""")
     
