@@ -78,5 +78,5 @@ with st.container():
 with st.container():
     grafic = np.round(df1.loc[:,['neighbourhood_group','price']].groupby('neighbourhood_group').mean().reset_index(),2)
 
-    fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'})
+    fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'}, popup=pop_up)
     st.plotly_chart(fig, use_container_width=True)
