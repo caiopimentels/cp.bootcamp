@@ -73,7 +73,7 @@ with st.container():
                .head(10))
 
     map = fl.Map()
-    map.fit_bounds(map.get_bounds(), padding=(30, 30))
+    #map.fit_bounds(map.get_bounds(), padding=(30, 30))
     
     master_cluster = fl.plugins.MarkerCluster().add_to(map)
 
