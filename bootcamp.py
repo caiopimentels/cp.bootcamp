@@ -65,9 +65,9 @@ with st.container():
         longitude = location_index['longitude']
 
         pop_up = f'<div style="width: 250px;">' \
-             f'Nome: {location_index['name']} <br>' \
-             f'Número de Avaliações: {location_index['number_of_reviews']} <br>'
-             f'Preço: {location_index['price']} <br>'
+             f'Nome: {location_index["name"]} <br>' \
+             f'Número de Avaliações: {location_index["number_of_reviews"]} <br>' \
+             f'Preço: {location_index["price"]} <br>' \
              f'</div>'
         
 
