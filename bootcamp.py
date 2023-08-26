@@ -76,7 +76,7 @@ with st.container():
         fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(master_cluster)
     
     folium_static(map, width=864, height=486)
-
+     st.markdown("""---""")
 with st.container():
     st.markdown('### Valor médio de aluguel por região')
     grafic = np.round(df1.loc[:,['neighbourhood_group','price']].groupby('neighbourhood_group').mean().reset_index(),2)
