@@ -3,7 +3,6 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 import folium as fl
-#import plotly.graph_objects as go
 
 from PIL import Image
 from streamlit_folium import folium_static
@@ -17,7 +16,6 @@ def clear_code(df1):
     df1 = df1[~df1['host_name'].isnull()]
 
     return df1
-
 
 #-------------------------------- Inicio da Estrutura lógica do código --------------------------------
 df = pd.read_csv('dataset/AB_NYC_2019.csv.zip')
