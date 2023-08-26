@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 from PIL import Image
 from streamlit_folium import folium_static
-from folium.plugins import FastMarkerCluster
+#from folium.plugins import FastMarkerCluster
 
 #================================
 #Funções:
@@ -55,15 +55,15 @@ with st.container():
 
     with col1:
         price_mean = np.round(df1.loc[:,'price'].mean(),2)
-        st.metric('Valor médio ($)', price_mean)
+        st.metric('Valor médio ($)', price_mean, help='Com base no filtro aplicador')
 
     with col2:
         price_max = '{:,}'.format(df1.loc[:,'price'].max()).replace(',','.')
-        st.metric('Aluguel Mais Caro ($)', price_max)
+        st.metric('Aluguel Mais Caro ($)', price_max, help='Com base no filtro aplicador')
 
     with col3:
         price_std = np.round(df1.loc[:,'price'].std(),2)
-        st.metric('Std Dos Alugueis ($)', price_std)
+        st.metric('Std Dos Alugueis ($)', price_std, help='Com base no filtro aplicador')
     st.markdown("""---""")
 
 with st.container():
