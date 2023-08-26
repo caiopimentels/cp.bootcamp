@@ -9,9 +9,6 @@ from PIL import Image
 from streamlit_folium import folium_static
 from folium.plugins import FastMarkerCluster
 
-df = pd.read_csv('dataset/AB_NYC_2019.csv.zip')
-df1 = df.copy()
-
 #================================
 #Funções:
 #================================
@@ -24,6 +21,14 @@ def clear_code(df1):
 
 
 #-------------------------------- Inicio da Estrutura lógica do código --------------------------------
+df = pd.read_csv('dataset/AB_NYC_2019.csv.zip')
+df1 = df.copy()
+
+df1 = clear_code(df1)
+
+image = Image.open('logo.png')
+st.image(image, width=300)
+
 #==================================
 # Main Page
 #==================================
