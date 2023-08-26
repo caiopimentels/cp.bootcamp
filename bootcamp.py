@@ -90,7 +90,7 @@ with st.container():
 
         fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(master_cluster)
     
-    folium_static(map, width=720, height=600)
+    folium_static(map, width=720, height=400)
     st.markdown("""---""")
     
 with st.container():
