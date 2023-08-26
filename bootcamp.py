@@ -26,8 +26,24 @@ df1 = df.copy()
 
 df1 = clear_code(df1)
 
+#==================================
+# Barra Lateral Streamlit
+#==================================
 image = Image.open('logo.png')
-st.image(image, width=300)
+st.sidebar.image(image, width=100)
+
+st.sidebar.markdown('# Airbnb')
+st.sidebar.markdown('### Pertença a qualquer lugar onde você estiver #')
+st.sidebar.markdown("""---""")
+
+neighborhood_unique = df1['neighbourhood_group'].unique()
+
+neighborhood = st.sidebar.multiselect('Escolha o país que deseja filtrar',
+                                neighborhood_unique,
+                                default=neighborhood_unique)
+
+selecao = df1['neighbourhood_group Code'].isin(neighborhood)
+df1 = df1.loc[selecao,:]
 
 #==================================
 # Main Page
