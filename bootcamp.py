@@ -49,6 +49,7 @@ st.markdown('## Dashbord de acompanhamento Airbnb')
 
 with st.container():
     col1, col2, col3 = st.columns(3)
+    st.markdown('# 📈 Principais Metricas')
 
     with col1:
         price_mean = np.round(df1.loc[:,'price'].mean(),2)
