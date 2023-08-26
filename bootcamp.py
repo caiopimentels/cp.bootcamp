@@ -46,10 +46,10 @@ df1 = df1.loc[selecao,:]
 # Main Page
 #==================================
 st.markdown('## Dashbord de acompanhamento Airbnb')
-
+st.markdown('### 📈 Principais Metricas')
 with st.container():
     col1, col2, col3 = st.columns(3)
-    st.markdown('### 📈 Principais Metricas')
+    
 
     with col1:
         price_mean = np.round(df1.loc[:,'price'].mean(),2)
@@ -65,7 +65,7 @@ with st.container():
     st.markdown("""---""")
 
 with st.container():
-    st.markdown('### Localização dos 10 melhores imóveis')
+    st.markdown('### 🌎 Localização dos 10 melhores imóveis')
     name = (df1.loc[:,['name','number_of_reviews','latitude','longitude','reviews_per_month', 'price']]
                .groupby(['name','latitude','longitude','number_of_reviews','price'])
                .max()
@@ -95,7 +95,7 @@ with st.container():
     st.markdown("""---""")
     
 with st.container():
-    st.markdown('### Valor médio de aluguel por região')
+    st.markdown('### 📊 Valor médio de aluguel por região')
     grafic = np.round(df1.loc[:,['neighbourhood_group','price']].groupby('neighbourhood_group').mean().reset_index(),2)
 
     fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'})
