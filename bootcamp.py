@@ -88,7 +88,7 @@ with st.container():
              f'</div>'
         
 
-        fl.Marker([latitude,longitude], zoom_start=1000, popup=pop_up).add_to(master_cluster)
+        fl.Marker([latitude,longitude], zoom_start=5, popup=pop_up).add_to(master_cluster)
     
     
     folium_static(map, width=720, height=400)
