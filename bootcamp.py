@@ -48,8 +48,10 @@ with st.container():
     with col3:
         price_std = np.round(df1.loc[:,'price'].std(),2)
         st.metric('Std Dos Alugueis ($)', price_std)
+    st.markdown("""---""")
 
 with st.container():
+    st.markdown('### Localização dos 10 melhores imóveis')
     name = (df1.loc[:,['name','number_of_reviews','latitude','longitude','reviews_per_month', 'price']]
                .groupby(['name','latitude','longitude','number_of_reviews','price'])
                .max()
@@ -76,6 +78,7 @@ with st.container():
     folium_static(map, width=864, height=486)
 
 with st.container():
+    st.markdown('### Valor médio de aluguel por região')
     grafic = np.round(df1.loc[:,['neighbourhood_group','price']].groupby('neighbourhood_group').mean().reset_index(),2)
 
     fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'})
