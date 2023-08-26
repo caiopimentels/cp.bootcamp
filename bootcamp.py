@@ -32,22 +32,22 @@ st.image(image, width=300)
 #==================================
 # Main Page
 #==================================
-st.markdown('# Dashbord de acompanhamento Airbnb')
+st.markdown('## Dashbord de acompanhamento Airbnb')
 
 with st.container():
     col1, col2, col3 = st.columns(3)
 
     with col1:
         price_mean = np.round(df1.loc[:,'price'].mean(),2)
-        st.metric('Valor médio', price_mean)
+        st.metric('Valor médio', '$' + price_mean)
 
     with col2:
         price_max = '{:,}'.format(df1.loc[:,'price'].max()).replace(',','.')
-        st.metric('Aluguel Mais Caro', price_max)
+        st.metric('Aluguel Mais Caro', '$' + price_max)
 
     with col3:
         price_std = np.round(df1.loc[:,'price'].std(),2)
-        st.metric('Std Dos Alugueis', price_std)
+        st.metric('Std Dos Alugueis', '$' + price_std)
 
 with st.container():
     name = (df1.loc[:,['name','number_of_reviews','latitude','longitude','reviews_per_month', 'price']]
