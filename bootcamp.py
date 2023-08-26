@@ -71,12 +71,12 @@ with st.container():
              f'</div>'
         
 
-        fl.Marker([latitude,longitude], zoom_start=10).add_to(master_cluster)
+        fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(master_cluster)
     
     folium_static(map, width=864, height=486)
 
 with st.container():
     grafic = np.round(df1.loc[:,['neighbourhood_group','price']].groupby('neighbourhood_group').mean().reset_index(),2)
 
-    fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'}, popup=pop_up)
+    fig = px.bar(grafic, x='neighbourhood_group',y='price', text_auto=True, labels={'price':'Valor médio','neighbourhood_group':'Região'})
     st.plotly_chart(fig, use_container_width=True)
