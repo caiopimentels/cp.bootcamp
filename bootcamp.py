@@ -38,11 +38,11 @@ st.sidebar.markdown("""---""")
 
 neighborhood_unique = df1['neighbourhood_group'].unique()
 
-neighborhood = st.sidebar.multiselect('Escolha o país que deseja filtrar',
+neighborhood = st.sidebar.multiselect('Escolha os bairros que deseja filtrar',
                                 neighborhood_unique,
                                 default=neighborhood_unique)
 
-selecao = df1['neighbourhood_group Code'].isin(neighborhood)
+selecao = df1['neighbourhood_group'].isin(neighborhood)
 df1 = df1.loc[selecao,:]
 
 #==================================
