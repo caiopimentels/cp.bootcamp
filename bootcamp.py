@@ -27,7 +27,7 @@ df1 = clear_code(df1)
 # Barra Lateral Streamlit
 #==================================
 image = Image.open('logo.png')
-st.sidebar.image(image, width=100)
+st.sidebar.image(image, width=200)
 
 st.sidebar.markdown('# Airbnb')
 st.sidebar.markdown('### Pertença a qualquer lugar onde você estiver #')
@@ -73,7 +73,7 @@ with st.container():
                .head(10))
 
     map = fl.Map()
-    master_cluster = fl.plugins.MarkerCluster().add_to(map)
+    #master_cluster = fl.plugins.MarkerCluster().add_to(map)
 
     for index, location_index in name.iterrows():
         latitude = location_index['latitude']
@@ -86,7 +86,7 @@ with st.container():
              f'</div>'
         
 
-        fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(master_cluster)
+        fl.Marker([latitude,longitude], zoom_start=10, popup=pop_up).add_to(map)
     
     folium_static(map, width=720, height=400)
     st.markdown("""---""")
