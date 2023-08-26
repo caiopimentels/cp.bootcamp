@@ -73,7 +73,7 @@ with st.container():
                .head(10))
 
     map = fl.Map()
-    #master_cluster = fl.plugins.MarkerCluster().add_to(map)
+    master_cluster = fl.plugins.MarkerCluster().add_to(map)
 
     for index, location_index in name.iterrows():
         latitude = location_index['latitude']
@@ -86,7 +86,7 @@ with st.container():
              f'</div>'
         
 
-        fl.Marker([latitude,longitude], zoom_start=20, popup=pop_up).add_to(map)
+        fl.Marker([latitude,longitude], zoom_start=20, popup=pop_up).add_to(master_cluster)
     
     folium_static(map, width=720, height=400)
     st.markdown("""---""")
